@@ -6,76 +6,75 @@ using UnityEngine;
 
 public class todos : MonoBehaviour
 {
-    bool invisible = false;
-    bool gano = true;
+    
     int random = -1;
-    int nivel = 1;
-    float timer = 0;
+    int nivel;
+    bool invisible = false;
+    bool gano;
+    bool terminofase1;
+    bool terminofase2 ;
+    bool perdio = false;
     private IEnumerator coroutine;
+    private IEnumerator coroutine2;
+    private IEnumerator coroutine3;
     List<int> lista = new List<int>(); //lista donde esta la secuencia que se tiene que hacer
     List<int> lista_jugador = new List<int>(); //lista donde se pone lo que hizo el jugador
+
     // Start is called before the first frame update
     void Start()
     {
-        
+       // GameObject.Find("perdiste").SetActive(false);
+        terminofase1 = true;
+        terminofase2 = false;
+        gano = false;
+        nivel = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        fase1(nivel);
 
-
-        if (Input.GetKey("z"))
+        if (perdio)
         {
-            GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = true;
-            invisible = false;
+            // GameObject.Find("perdiste").SetActive(true);
+            Debug.Log("Perdio");
         }
 
-        if (Input.GetKey("x"))
+        if ( terminofase1)
         {
-            GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = true;
-            invisible = false;
-        }
+            coroutine = fase1(nivel);
+            StartCoroutine(coroutine);
 
-        if (Input.GetKey("a"))
-        {
-            GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = true;
-            invisible = false;
         }
-
-        if (Input.GetKey("s"))
-        {
-            GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = true;
-            invisible = false;
-        }
-
-        if (Input.GetKeyDown("space"))
-        {
             
-           // GameObject.Find("Text").SetActive(false);
-            gano = false;
-            GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = true;
+        if( terminofase2)
+        {
+            StopCoroutine(coroutine);
+            coroutine2 = fase2(nivel);
+            StartCoroutine(coroutine2);
+        }
 
         
-    }
-        if (!gano)
+  
+        
+
+
+       /* if (!gano)
         {
             coroutine = esperar2(lista);
             StartCoroutine(coroutine);
             gano = true;
-        }
+        }*/
+
+       
 
 
-        timer = 0;
     }
 
 
     IEnumerator esperar2(List<int> lis)
     {
+        Debug.Log("Esperar2");
        foreach(var i in lis)
         {
             yield return new WaitForSecondsRealtime(1);
@@ -90,6 +89,25 @@ public class todos : MonoBehaviour
             yield return new WaitForSecondsRealtime(1);
             hola2(i);
         }
+    }
+
+
+    IEnumerator esperar3(int i)
+    {
+        Debug.Log("Esperar3");
+        
+            yield return new WaitForSecondsRealtime(1);
+            if (i == 25)
+                GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
+            if (i == 5)
+                GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
+            if (i == 50)
+                GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
+            if (i == 99)
+                GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSecondsRealtime(1);
+            hola2(i);
+        
     }
 
 
@@ -119,51 +137,164 @@ public class todos : MonoBehaviour
     }
 
 
-    void fase1(int nivel)
+    IEnumerator fase1(int nivel)
     {
-        for(int i=0; i<nivel; i++)
+        Debug.Log("Fase1");
+        random = UnityEngine.Random.Range(0, 5);
+        for (int i=0; i<nivel; i++)
         {
-            random = UnityEngine.Random.Range(0, 100);
 
-            if (random == 25 && !invisible && gano)
+            if (invisible)
+                break;
+
+
+            if (random == 1   )
             {
+                /* yield return new WaitForSecondsRealtime(1);
 
-                GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
+                 GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
+                 yield return new WaitForSecondsRealtime(1);
+                 GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = true; */
+               
+                 yield return new WaitForSecondsRealtime(1);
+                coroutine3 = esperar3(random);
+                StartCoroutine(coroutine3);
                 invisible = true;
-                lista.Add(random);
+                lista.Add(25);
 
 
             }
 
-            if (random == 5 && !invisible && gano)
+            if (random == 2  )
             {
+               /* yield return new WaitForSecondsRealtime(1);
 
                 GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
+                yield return new WaitForSecondsRealtime(1);
+                GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = true;*/
+                 yield return new WaitForSecondsRealtime(1);
+                coroutine3 = esperar3(random);
+                StartCoroutine(coroutine3);
                 invisible = true;
-                lista.Add(random);
+                lista.Add(5);
 
             }
 
-            if (random == 50 && !invisible && gano)
+            if (random == 3   )
             {
+               /* yield return new WaitForSecondsRealtime(1);
 
                 GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
+                yield return new WaitForSecondsRealtime(1);
+                GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = true;*/
+                 yield return new WaitForSecondsRealtime(1);
+                coroutine3 = esperar3(random);
+                StartCoroutine(coroutine3);
                 invisible = true;
-                lista.Add(random);
+                lista.Add(50);
 
             }
 
-            if (random == 99 && !invisible && gano)
+            if (random == 4  )
             {
+                /*yield return new WaitForSecondsRealtime(1);
 
                 GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
+                yield return new WaitForSecondsRealtime(1);
+                GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = true;*/
+                 yield return new WaitForSecondsRealtime(1);
+                coroutine3 = esperar3(random);
+                StartCoroutine(coroutine3);
                 invisible = true;
-                lista.Add(random);
+                lista.Add(99);
 
             }
         }//fin del for
+        terminofase2 = true;
+        terminofase1 = false;
+
         
     }
+
+    IEnumerator fase2(int nivel)
+    {
+        gano = false;
+        Debug.Log("Fase2");
+        //  yield return new WaitForSecondsRealtime(1);
+        GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = true;
+        GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = true;
+        GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = true;
+        GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = true;
+        for (int i=0; i<nivel; i++)
+        {
+
+            if (Input.GetKey("z"))
+            {
+                GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
+                yield return new WaitForSecondsRealtime(1);
+                GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = true;
+                invisible = false;
+                lista_jugador.Add(25);
+                gano = true;
+                Debug.Log("z");
+                nivel++;
+            }
+
+            if (Input.GetKey("x"))
+            {
+                GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
+                yield return new WaitForSecondsRealtime(1);
+                GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = true;
+                invisible = false;
+                lista_jugador.Add(5);
+                gano = true;
+                Debug.Log("x");
+                nivel++;
+
+            }
+
+            if (Input.GetKey("a"))
+            {
+                GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
+                yield return new WaitForSecondsRealtime(1);
+                GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = true;
+                invisible = false;
+                lista_jugador.Add(50);
+                gano = true;
+                Debug.Log("a");
+                nivel++;
+
+            }
+
+            if (Input.GetKey("s"))
+            {
+                GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
+                yield return new WaitForSecondsRealtime(1);
+                GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = true;
+                invisible = false;
+                lista_jugador.Add(99);
+                Debug.Log("s");
+                gano = true;
+                nivel++;
+
+            }
+            /* if(!lista.Equals(lista_jugador))
+             {
+                 perdio = true;
+             }*/
+        }//fin del for
+
+        yield return new WaitForSecondsRealtime(2);
+        terminofase2 = false ;
+
+        if (nivel > 1)
+        {
+            coroutine3 = esperar2(lista);
+            StartCoroutine(coroutine3);
+        }
+    }
+
+   
 
 
     }
