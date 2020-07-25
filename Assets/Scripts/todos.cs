@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using UnityEngine;
 
 public class todos : MonoBehaviour
 {
     
-    int random = -1;
+    int random ;
     int nivel;
-    bool invisible = false;
-    bool gano;
     bool terminofase1;
     bool terminofase2 ;
-    bool perdio = false;
-    bool mostrar;
     float timer = 0.0f;
     private IEnumerator coroutine;
     private IEnumerator coroutine2;
-    private IEnumerator coroutine3;
+
+    public AudioClip sonido_z = null;
+    public AudioClip sonido_x = null;
+    public AudioClip sonido_a = null;
+    public AudioClip sonido_s = null;
 
     private IEnumerator coroutine4;
     List<int> lista = new List<int>(); //lista donde esta la secuencia que se tiene que hacer
@@ -30,9 +31,7 @@ public class todos : MonoBehaviour
        // GameObject.Find("perdiste").SetActive(false);
         terminofase1 = true;
         terminofase2 = false;
-        gano = false;
         nivel = 1;
-        mostrar = false;
         
     }
 
@@ -40,11 +39,7 @@ public class todos : MonoBehaviour
     void Update()
     {
         timer+= Time.deltaTime;
-        if (perdio)
-        {
-            // GameObject.Find("perdiste").SetActive(true);
-            Debug.Log("Perdio");
-        }
+    
 
         if ( timer >=4 && terminofase1)
         {
@@ -98,7 +93,6 @@ public class todos : MonoBehaviour
             yield return new WaitForSeconds(1);
             hola2(i);
         }
-        mostrar = false;
     }
 
 
@@ -108,14 +102,30 @@ public class todos : MonoBehaviour
         
             yield return new WaitForSecondsRealtime(1);
             if (i == 25)
-                GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
+        {
+             GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
+             AudioSource.PlayClipAtPoint(sonido_z, new Vector3(0, 0, 0), 1);
+
+        }
             if (i == 5)
-                GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
-            if (i == 50)
-                GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
-            if (i == 99)
-                GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
-            yield return new WaitForSecondsRealtime(1);
+        {
+            GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
+            AudioSource.PlayClipAtPoint(sonido_x, new Vector3(0, 0, 0), 1);
+
+        }
+        if (i == 50)
+        {
+            GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
+            AudioSource.PlayClipAtPoint(sonido_a, new Vector3(0, 0, 0), 1);
+
+        }
+        if (i == 99)
+        {
+            GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
+            AudioSource.PlayClipAtPoint(sonido_s, new Vector3(0, 0, 0), 1);
+
+        }
+        yield return new WaitForSecondsRealtime(1);
             hola2(i);
         
     }
@@ -147,7 +157,6 @@ public class todos : MonoBehaviour
        
         
         
-        mostrar = true;
     }
 
 
@@ -205,13 +214,20 @@ public class todos : MonoBehaviour
 
     IEnumerator fase2(int nivel)
     {
-        gano = false;
         Debug.Log("Fase2");
         //  yield return new WaitForSecondsRealtime(1);
 
 
         if (lista_jugador.Count == lista.Count)
         {
+
+            if (!lista.SequenceEqual(lista_jugador))
+            {
+                GameObject.Find("perdiste").SetActive(false);
+                Debug.Log("perdiste");
+                
+            }
+
             lista_jugador.Clear();
 
             foreach (var i in lista)
@@ -219,16 +235,35 @@ public class todos : MonoBehaviour
 
                 yield return new WaitForSecondsRealtime(1);
                 if (i == 25)
+                {
                     GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
+                    AudioSource.PlayClipAtPoint(sonido_z, new Vector3(0, 0, 0), 1);
+
+                }
                 if (i == 5)
+                {
                     GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
+                    AudioSource.PlayClipAtPoint(sonido_x, new Vector3(0, 0, 0), 1);
+
+                }
                 if (i == 50)
+                {
                     GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
+                    AudioSource.PlayClipAtPoint(sonido_a, new Vector3(0, 0, 0), 1);
+
+                }
                 if (i == 99)
+                {
                     GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
+                    AudioSource.PlayClipAtPoint(sonido_s, new Vector3(0, 0, 0), 1);
+
+                }
                 yield return new WaitForSecondsRealtime(1);
                 hola2(i);
             }
+
+            
+
             terminofase2 = false;
             terminofase1 = true;
             timer = 0;
@@ -246,10 +281,12 @@ public class todos : MonoBehaviour
                 GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = true;
-                invisible = false;
+                
+
                 lista_jugador.Add(25);
-                gano = true;
                 Debug.Log("z");
+                AudioSource.PlayClipAtPoint(sonido_z, new Vector3(0, 0, 0), 1);
+
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
                 else
@@ -262,10 +299,9 @@ public class todos : MonoBehaviour
                 GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = true;
-                invisible = false;
                 lista_jugador.Add(5);
-                gano = true;
                 Debug.Log("x");
+                AudioSource.PlayClipAtPoint(sonido_x, new Vector3(0, 0, 0), 1);
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
                 else
@@ -279,10 +315,9 @@ public class todos : MonoBehaviour
                 GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = true;
-                invisible = false;
                 lista_jugador.Add(50);
-                gano = true;
                 Debug.Log("a");
+                AudioSource.PlayClipAtPoint(sonido_a, new Vector3(0, 0, 0), 1);
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
                 else
@@ -296,21 +331,17 @@ public class todos : MonoBehaviour
                 GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = true;
-                invisible = false;
                 lista_jugador.Add(99);
                 Debug.Log("s");
-                gano = true;
 
+                AudioSource.PlayClipAtPoint(sonido_s, new Vector3(0, 0, 0), 1);
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
                 else
                     timer = 1;
 
             }
-            /* if(!lista.Equals(lista_jugador))
-             {
-                 perdio = true;
-             }*/
+            
         }//fin del for
 
         // terminofase2 = false;
