@@ -155,7 +155,7 @@ public class todos : MonoBehaviour
     {
         Debug.Log("Fase1");
         random = UnityEngine.Random.Range(1, 5);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0);
       
 
             
@@ -209,6 +209,33 @@ public class todos : MonoBehaviour
         Debug.Log("Fase2");
         //  yield return new WaitForSecondsRealtime(1);
 
+
+        if (lista_jugador.Count == lista.Count)
+        {
+            lista_jugador.Clear();
+
+            foreach (var i in lista)
+            {
+
+                yield return new WaitForSecondsRealtime(1);
+                if (i == 25)
+                    GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
+                if (i == 5)
+                    GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
+                if (i == 50)
+                    GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
+                if (i == 99)
+                    GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
+                yield return new WaitForSecondsRealtime(1);
+                hola2(i);
+            }
+            terminofase2 = false;
+            terminofase1 = true;
+            timer = 0;
+        }
+
+
+
         for (int i=0; i<nivel; i++)
         {
             
@@ -224,7 +251,7 @@ public class todos : MonoBehaviour
                 gano = true;
                 Debug.Log("z");
                 if (lista.Count == lista_jugador.Count)
-                    timer = 0;
+                    timer = 1;
                 else
                     timer = 1;
             }
@@ -240,7 +267,7 @@ public class todos : MonoBehaviour
                 gano = true;
                 Debug.Log("x");
                 if (lista.Count == lista_jugador.Count)
-                    timer = 0;
+                    timer = 1;
                 else
                     timer = 1;
 
@@ -257,7 +284,7 @@ public class todos : MonoBehaviour
                 gano = true;
                 Debug.Log("a");
                 if (lista.Count == lista_jugador.Count)
-                    timer = 0;
+                    timer = 1;
                 else
                     timer = 1;
 
@@ -275,7 +302,7 @@ public class todos : MonoBehaviour
                 gano = true;
 
                 if (lista.Count == lista_jugador.Count)
-                    timer = 0;
+                    timer = 1;
                 else
                     timer = 1;
 
@@ -289,31 +316,7 @@ public class todos : MonoBehaviour
         // terminofase2 = false;
 
 
-        if (lista_jugador.Count == lista.Count)
-        {
-            lista_jugador.Clear();
-           // coroutine3 = esperar2(lista);
-            //StartCoroutine(coroutine3);
-            foreach(var i in lista)
-            {
-                /*coroutine3 = esperar3(item);
-                StartCoroutine(coroutine3);*/
-                yield return new WaitForSecondsRealtime(1);
-                if (i == 25)
-                    GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
-                if (i == 5)
-                    GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
-                if (i == 50)
-                    GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
-                if (i == 99)
-                    GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
-                yield return new WaitForSecondsRealtime(1);
-                hola2(i);
-            }
-            terminofase2 = false;
-            terminofase1 = true;
-            timer = 0;
-        }
+        
        
     }
 
