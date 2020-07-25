@@ -46,12 +46,18 @@ public class todos : MonoBehaviour
             Debug.Log("Perdio");
         }
 
-        if ( timer >=2 && terminofase1)
+        if ( timer >=4 && terminofase1)
         {
             //fase1(nivel);
             coroutine = fase1(nivel);
             StartCoroutine(coroutine);
             timer = 0;
+            terminofase2 = true;
+            Debug.Log("Listaaaa");
+            foreach(var item in lista)
+            {
+                Debug.Log(item);
+            }
             
 
         }
@@ -62,12 +68,12 @@ public class todos : MonoBehaviour
             StartCoroutine(coroutine3);
         }*/
             
-       /* if( terminofase2)
+        if( timer>=4 && terminofase2)
         {
-            StopCoroutine(coroutine);
             coroutine2 = fase2(nivel);
             StartCoroutine(coroutine2);
-        }*/
+            
+        }
 
         
   
@@ -157,7 +163,7 @@ public class todos : MonoBehaviour
 
         }
        
-        terminofase2 = true;
+        
         terminofase1 = false;
         mostrar = true;
     }
@@ -176,6 +182,7 @@ public class todos : MonoBehaviour
             {
                 coroutine4 = esperar3(25);
             StartCoroutine(coroutine4);
+            lista.Add(25);
 
                 /* coroutine4 = esperar2(lista);
                  StartCoroutine(coroutine4);
@@ -189,6 +196,7 @@ public class todos : MonoBehaviour
               {
             coroutine4 = esperar3(5);
             StartCoroutine(coroutine4);
+            lista.Add(5);
             /* if (timer >= 1 && !gano)
              {
                  GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
@@ -221,6 +229,7 @@ public class todos : MonoBehaviour
              {
             coroutine4 = esperar3(50);
             StartCoroutine(coroutine4);
+            lista.Add(50);
             /* yield return new WaitForSeconds(2);
 
              GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
@@ -238,6 +247,7 @@ public class todos : MonoBehaviour
              {
             coroutine4 = esperar3(99);
             StartCoroutine(coroutine4);
+            lista.Add(99);
             /*yield return new WaitForSeconds(2);
 
             GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
@@ -273,6 +283,7 @@ public class todos : MonoBehaviour
 
             if (Input.GetKey("z"))
             {
+                nivel++;
                 GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = true;
@@ -280,11 +291,12 @@ public class todos : MonoBehaviour
                 lista_jugador.Add(25);
                 gano = true;
                 Debug.Log("z");
-                nivel++;
+            timer = 0;
             }
 
             if (Input.GetKey("x"))
             {
+                nivel++;
                 GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = true;
@@ -292,12 +304,12 @@ public class todos : MonoBehaviour
                 lista_jugador.Add(5);
                 gano = true;
                 Debug.Log("x");
-                nivel++;
 
             }
 
             if (Input.GetKey("a"))
             {
+                nivel++;
                 GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = true;
@@ -305,12 +317,13 @@ public class todos : MonoBehaviour
                 lista_jugador.Add(50);
                 gano = true;
                 Debug.Log("a");
-                nivel++;
+                timer = 0;
 
             }
 
             if (Input.GetKey("s"))
             {
+                nivel++;
                 GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = true;
@@ -318,7 +331,8 @@ public class todos : MonoBehaviour
                 lista_jugador.Add(99);
                 Debug.Log("s");
                 gano = true;
-                nivel++;
+               
+                timer = 0;
 
             }
             /* if(!lista.Equals(lista_jugador))
@@ -327,13 +341,15 @@ public class todos : MonoBehaviour
              }*/
         }//fin del for
 
-        yield return new WaitForSecondsRealtime(2);
-        terminofase2 = false ;
+       // terminofase2 = false;
+
 
         if (nivel > 1)
         {
             coroutine3 = esperar2(lista);
             StartCoroutine(coroutine3);
+            terminofase2 = false;
+            timer = 0;
         }
        
     }
