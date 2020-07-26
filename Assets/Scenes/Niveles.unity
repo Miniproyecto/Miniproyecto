@@ -311,6 +311,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc59155026d00843a6759a107955f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facil: {fileID: 8300000, guid: 9d1cd768cbcf47c488af7e4eec4fe9ee, type: 3}
+  medio: {fileID: 8300000, guid: 1f91608f4f5c0a74da4b1dc9b9526c2b, type: 3}
+  dificil: {fileID: 8300000, guid: f532a7407189dad4e8ba303fae085cec, type: 3}
 --- !u!4 &416504908
 Transform:
   m_ObjectHideFlags: 0

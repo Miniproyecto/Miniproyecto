@@ -555,6 +555,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7432cd334e30705419c7f07721c0cd82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pausa: {fileID: 8300000, guid: 360101730e914ed4195b724efba75e57, type: 3}
+  a: {fileID: 8300000, guid: d35411a6b5852ee47a36d9275ad0cabd, type: 3}
+  s: {fileID: 8300000, guid: d81b0f284e786a0479df694e33be9516, type: 3}
+  d: {fileID: 8300000, guid: 914f8e32bf591084bb8ff1f4b41f0bb5, type: 3}
+  z: {fileID: 8300000, guid: 53c02b18acad3f847960be7569c0e464, type: 3}
+  x: {fileID: 8300000, guid: 42c0217bd1d86584f8290d587182e5d0, type: 3}
+  c: {fileID: 8300000, guid: 3c834ad17d3d24243a6b7a64b87d5fbc, type: 3}
+  sonido_a: {fileID: 8300000, guid: b09038897fb5ecf468b300fb5bc203a3, type: 3}
+  sonido_s: {fileID: 8300000, guid: 5ff4997a6750bb84eb62b0429d237f9a, type: 3}
+  sonido_d: {fileID: 8300000, guid: 82b42bcac065e7441931820c965d5e93, type: 3}
+  sonido_z: {fileID: 8300000, guid: 029adb8f23b52e4488f5c2ecb8a8b5fc, type: 3}
+  sonido_x: {fileID: 8300000, guid: 3d918ad4d77690549aa5ae6a13d72457, type: 3}
+  sonido_c: {fileID: 8300000, guid: bcb6c03f5d99f7e4ca2573636bef8033, type: 3}
 --- !u!4 &1849936545
 Transform:
   m_ObjectHideFlags: 0
