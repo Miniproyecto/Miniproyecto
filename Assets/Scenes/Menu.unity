@@ -561,6 +561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4303ba4b6103c9d4d9a9ac99c36ec808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  niveles: {fileID: 8300000, guid: e42257cc89226584c8f02e9f92deaefe, type: 3}
+  instrucciones: {fileID: 8300000, guid: 8c820cb88679f6c49af47cbeee654d4e, type: 3}
 --- !u!1 &1146352546
 GameObject:
   m_ObjectHideFlags: 0

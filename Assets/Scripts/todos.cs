@@ -26,6 +26,9 @@ public class todos : MonoBehaviour
     List<int> lista = new List<int>(); //lista donde esta la secuencia que se tiene que hacer
     List<int> lista_jugador = new List<int>(); //lista donde se pone lo que hizo el jugador
 
+    /*bool active;
+    Canvas canvas;*/
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +36,8 @@ public class todos : MonoBehaviour
         terminofase1 = true;
         terminofase2 = false;
         nivel = 1;
-        
+        //GameObject.Find("Canvas").active = false;
+
     }
 
     // Update is called once per frame
@@ -67,10 +71,17 @@ public class todos : MonoBehaviour
             
         }
 
-        if (Input.GetKey("space"))
+       /* if (Input.GetKeyDown("space"))
         {
-            SceneManager.LoadScene("nivel2");
+            active = !active;
+            canvas.enabled = active;
+            Time.timeScale = (active) ? 0 : 1; // si active es 1 se pausa si es 0 se quita la pausa
         }
+
+        if (Input.GetKeyDown("backspace") && !active)
+        {
+            SceneManager.LoadScene("Menu");
+        }*/
 
 
     }

@@ -68,10 +68,6 @@ public class todos_lvl2 : MonoBehaviour
 
         }
 
-        if (Input.GetKey("space"))
-        {
-            SceneManager.LoadScene("nivel2");
-        }
 
 
     }
