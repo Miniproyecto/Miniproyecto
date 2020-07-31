@@ -14,7 +14,7 @@ public class Menu : MonoBehaviour
     bool reproducirInstrucciones = true;
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class Menu : MonoBehaviour
 
             if (timer > 20 && timer < 30)
             {
-                SceneManager.LoadScene("nivel3");
+                SceneManager.LoadScene("ModoPrueba");
             }
 
             
