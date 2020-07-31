@@ -10,8 +10,14 @@ public class Menu : MonoBehaviour
     float timer = 0.0f;
     public AudioClip niveles = null;
     public AudioClip instrucciones = null;
+    public AudioClip modoprueba = null;
+    public AudioClip proposito = null;
+    public AudioClip salir = null;
     bool reproducirniveles = true;
     bool reproducirInstrucciones = true;
+    bool reproducirModoPrueba = true;
+    bool reproducirProposito = true;
+    bool reproducirSalir = true;
     void Start()
     {
        
@@ -38,7 +44,13 @@ public class Menu : MonoBehaviour
                 SceneManager.LoadScene("ModoPrueba");
             }
 
-            
+            if (timer > 30 && timer < 40)
+            {
+                SceneManager.LoadScene("Proposito");
+            }
+
+
+
         }
 
         if(timer< 10)
@@ -59,10 +71,33 @@ public class Menu : MonoBehaviour
 
         }
         if (timer > 20 && timer < 30)
-            GameObject.Find("Accion").GetComponent<Text>().text = "Tiempo: Nivel 3";
-       
+        {
+            GameObject.Find("Accion").GetComponent<Text>().text = "Accion: Modo prueba";
+            if (reproducirModoPrueba)
+                AudioSource.PlayClipAtPoint(modoprueba, new Vector3(0, 0, 0), 1);
+            reproducirModoPrueba = false;
+        }
 
-        if (timer > 30)
+        if (timer > 30 && timer < 40)
+        {
+            GameObject.Find("Accion").GetComponent<Text>().text = "Accion: Proposito";
+            if (reproducirProposito)
+                AudioSource.PlayClipAtPoint(proposito, new Vector3(0, 0, 0), 1);
+            reproducirProposito = false;
+
+        }
+
+        if (timer > 40 && timer < 50)
+        {
+            GameObject.Find("Accion").GetComponent<Text>().text = "Accion: Salir";
+            if (reproducirSalir)
+                AudioSource.PlayClipAtPoint(salir, new Vector3(0, 0, 0), 1);
+            reproducirSalir = false;
+
+        }
+
+
+        if (timer > 50)
         {
             timer = 0;
             reproducirniveles = true;

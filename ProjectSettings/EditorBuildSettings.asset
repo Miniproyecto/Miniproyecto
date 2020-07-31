@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ModoPrueba.unity
     guid: d6cc5210e90044452ab533591d2cac37
+  - enabled: 1
+    path: Assets/Scenes/Proposito.unity
+    guid: 245af57efb23b4f14be3d1810f3da621
   m_configObjects: {}
