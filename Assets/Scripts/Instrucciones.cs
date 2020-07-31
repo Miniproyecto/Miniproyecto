@@ -44,81 +44,81 @@ public class Instrucciones : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if ( timer < 21 && reproducirPausa )
+        if ( timer < 27 && reproducirPausa )
         {
             AudioSource.PlayClipAtPoint(pausa, new Vector3(0, 0, 0), 1);
             reproducirPausa = false;
         }
 
-        if(timer >21 && timer < 25 && reproducira)
+        if(timer >27 && timer < 31 && reproducira)
         {
             AudioSource.PlayClipAtPoint(a, new Vector3(0, 0, 0), 1);
             reproducira = false;
 
         }
 
-        if (timer > 25 && timer < 29 && reproduciraa)
+        if (timer > 31 && timer < 35 && reproduciraa)
         {
             AudioSource.PlayClipAtPoint(sonido_a, new Vector3(0, 0, 0), 1);
             reproduciraa = false;
         }
 
-        if (timer > 29 && timer < 33 && reproducirs)
+        if (timer > 35 && timer < 39 && reproducirs)
         {
             AudioSource.PlayClipAtPoint(s, new Vector3(0, 0, 0), 1);
             reproducirs = false;
         }
 
-        if (timer > 33 && timer < 37 && reproducirss)
+        if (timer > 39 && timer < 43 && reproducirss)
         {
             AudioSource.PlayClipAtPoint(sonido_s, new Vector3(0, 0, 0), 1);
             reproducirss = false;
         }
 
-        if (timer > 37 && timer < 41 && reproducird)
+        if (timer > 43 && timer < 47 && reproducird)
         {
             AudioSource.PlayClipAtPoint(d, new Vector3(0, 0, 0), 1);
             reproducird = false;
         }
 
-        if (timer > 41 && timer < 45 && reproducirdd)
+        if (timer > 47 && timer < 51 && reproducirdd)
         {
             AudioSource.PlayClipAtPoint(sonido_d, new Vector3(0, 0, 0), 1);
             reproducirdd = false;
         }
 
-        if (timer > 45 && timer < 49 && reproducirz)
+        if (timer > 51 && timer < 55 && reproducirz)
         {
             AudioSource.PlayClipAtPoint(z, new Vector3(0, 0, 0), 1);
             reproducirz = false;
         }
-        if (timer > 49 && timer < 53 && reproducirzz)
+        if (timer > 55 && timer < 59 && reproducirzz)
         {
             AudioSource.PlayClipAtPoint(sonido_z, new Vector3(0, 0, 0), 1);
             reproducirzz = false;
         }
-        if (timer > 53 && timer < 57 && reproducirx)
+        if (timer > 59 && timer < 63 && reproducirx)
         {
             AudioSource.PlayClipAtPoint(x, new Vector3(0, 0, 0), 1);
             reproducirx = false;
         }
-        if (timer > 57 && timer < 61 && reproducirxx)
+        if (timer > 63 && timer < 67 && reproducirxx)
         {
             AudioSource.PlayClipAtPoint(sonido_x, new Vector3(0, 0, 0), 1);
             reproducirxx = false;
         }
-        if (timer > 61 && timer < 65 && reproducirc)
+        if (timer > 67 && timer < 71 && reproducirc)
         {
             AudioSource.PlayClipAtPoint(c, new Vector3(0, 0, 0), 1);
             reproducirc = false;
         }
-        if (timer > 65 && reproducircc)
+        if (timer > 71 && reproducircc)
         {
             AudioSource.PlayClipAtPoint(sonido_c, new Vector3(0, 0, 0), 1);
             reproducircc = false;
         }
 
-        if(timer > 70)
+        if(timer > 77)
         {
             timer = 0;
              reproducirPausa = true;

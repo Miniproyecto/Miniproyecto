@@ -268,7 +268,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Iniciar
+  m_Text: Jugar
 --- !u!222 &201562074
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -955,6 +955,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   niveles: {fileID: 8300000, guid: e42257cc89226584c8f02e9f92deaefe, type: 3}
   instrucciones: {fileID: 8300000, guid: 8c820cb88679f6c49af47cbeee654d4e, type: 3}
+  modoprueba: {fileID: 8300000, guid: eee6a69f3a5ee4355ab4e2d69bc4212a, type: 3}
+  proposito: {fileID: 8300000, guid: 0bce9f96de61c457bbb6c9c97a2eb001, type: 3}
+  salir: {fileID: 8300000, guid: 5cfe07a0821e9419692c9859cd59930e, type: 3}
 --- !u!1 &943207548
 GameObject:
   m_ObjectHideFlags: 0
