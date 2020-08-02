@@ -11,6 +11,7 @@ public class todos : MonoBehaviour
     
     int random ;
     int nivel;
+    int contador;
     bool terminofase1;
     bool terminofase2 ;
     float timer = 0.0f;
@@ -36,6 +37,7 @@ public class todos : MonoBehaviour
         terminofase1 = true;
         terminofase2 = false;
         nivel = 1;
+        contador = 0;
         //GameObject.Find("Canvas").active = false;
 
     }
@@ -49,6 +51,7 @@ public class todos : MonoBehaviour
         if ( timer >=4 && terminofase1)
         {
             //fase1(nivel);
+            contador = 0;
             terminofase1 = false;
             coroutine = fase1(nivel);
             StartCoroutine(coroutine);
@@ -90,7 +93,7 @@ public class todos : MonoBehaviour
 
     IEnumerator esperar2(List<int> lis)
     {
-        Debug.Log("Esperar2");
+       // Debug.Log("Esperar2");
        foreach(int i in lista)
         {
             yield return new WaitForSeconds(1);
@@ -110,7 +113,7 @@ public class todos : MonoBehaviour
 
     IEnumerator esperar3(int i)
     {
-        Debug.Log("Esperar3");
+       // Debug.Log("Esperar3");
         
             yield return new WaitForSecondsRealtime(1);
             if (i == 25)
@@ -174,7 +177,7 @@ public class todos : MonoBehaviour
 
     IEnumerator fase1(int nivel)
     {
-        Debug.Log("Fase1");
+       // Debug.Log("Fase1");
         random = UnityEngine.Random.Range(1, 5);
         yield return new WaitForSeconds(0);
       
@@ -216,7 +219,7 @@ public class todos : MonoBehaviour
 
         }
 
-        Debug.Log(random);
+       // Debug.Log(random);
 
 
 
@@ -226,7 +229,7 @@ public class todos : MonoBehaviour
 
     IEnumerator fase2(int nivel)
     {
-        Debug.Log("Fase2");
+       // Debug.Log("Fase2");
         //  yield return new WaitForSecondsRealtime(1);
 
 
@@ -285,7 +288,11 @@ public class todos : MonoBehaviour
 
         for (int i=0; i<nivel; i++)
         {
-            
+            /* Debug.Log("Lista");
+             Debug.Log(lista.ElementAt(i));
+             Debug.Log(i);*/
+           // Debug.Log("Contaod: "+contador);
+            //Debug.Log("Elemento " + contador + ": " + lista.ElementAt(contador));
 
             if (Input.GetKeyDown("z"))
             {
@@ -296,28 +303,44 @@ public class todos : MonoBehaviour
                 
 
                 lista_jugador.Add(25);
-                Debug.Log("z");
+               // Debug.Log("z");
                 AudioSource.PlayClipAtPoint(sonido_z, new Vector3(0, 0, 0), 1);
 
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
                 else
                     timer = 1;
+                if (!(lista.ElementAt(contador) == 25))
+                {
+                    Debug.Log("Maaaaaaal");
+                    SceneManager.LoadScene("Menu");
+
+                }
+                contador++;
+
             }
 
             if (Input.GetKeyDown("x"))
             {
+                
                 nivel++;
                 GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = true;
                 lista_jugador.Add(5);
-                Debug.Log("x");
+                //Debug.Log("x");
                 AudioSource.PlayClipAtPoint(sonido_x, new Vector3(0, 0, 0), 1);
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
                 else
                     timer = 1;
+                if (!(lista.ElementAt(contador) == 5))
+                {
+                    Debug.Log("Maaaaaaal");
+                    SceneManager.LoadScene("Menu");
+
+                }
+                contador++;
 
             }
 
@@ -328,12 +351,20 @@ public class todos : MonoBehaviour
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = true;
                 lista_jugador.Add(50);
-                Debug.Log("a");
+               // Debug.Log("a");
                 AudioSource.PlayClipAtPoint(sonido_a, new Vector3(0, 0, 0), 1);
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
                 else
                     timer = 1;
+                if (!(lista.ElementAt(contador) == 50))
+                {
+                    Debug.Log("Maaaaaaal");
+                    SceneManager.LoadScene("Menu");
+
+                }
+                contador++;
+
 
             }
 
@@ -344,16 +375,24 @@ public class todos : MonoBehaviour
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = true;
                 lista_jugador.Add(99);
-                Debug.Log("s");
+               // Debug.Log("s");
 
                 AudioSource.PlayClipAtPoint(sonido_s, new Vector3(0, 0, 0), 1);
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
                 else
                     timer = 1;
+                if (!(lista.ElementAt(contador) == 99))
+                {
+                    Debug.Log("Maaaaaaal");
+                    SceneManager.LoadScene("Menu");
+
+                }
+                contador++;
+
 
             }
-            
+
         }//fin del for
 
 
