@@ -288,11 +288,7 @@ public class todos : MonoBehaviour
 
         for (int i=0; i<nivel; i++)
         {
-            /* Debug.Log("Lista");
-             Debug.Log(lista.ElementAt(i));
-             Debug.Log(i);*/
-           // Debug.Log("Contaod: "+contador);
-            //Debug.Log("Elemento " + contador + ": " + lista.ElementAt(contador));
+
 
             if (Input.GetKeyDown("z"))
             {

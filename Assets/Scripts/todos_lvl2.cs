@@ -11,6 +11,7 @@ public class todos_lvl2 : MonoBehaviour
     // Start is called before the first frame update
     int random;
     int nivel;
+    int contador;
     bool terminofase1;
     bool terminofase2;
     float timer = 0.0f;
@@ -34,6 +35,7 @@ public class todos_lvl2 : MonoBehaviour
         terminofase1 = true;
         terminofase2 = false;
         nivel = 1;
+        contador = 0;
 
     }
 
@@ -46,17 +48,14 @@ public class todos_lvl2 : MonoBehaviour
         if (timer >= 4 && terminofase1)
         {
             //fase1(nivel);
+            contador = 0;
             terminofase1 = false;
             coroutine = fase1(nivel);
             StartCoroutine(coroutine);
             timer = 0;
             terminofase2 = true;
-            Debug.Log("Listaaaa");
-            foreach (var item in lista)
-            {
-                Debug.Log(item);
-            }
-
+            // Debug.Log("Listaaaa");
+   
 
         }
 
@@ -76,7 +75,7 @@ public class todos_lvl2 : MonoBehaviour
 
     IEnumerator esperar2(List<int> lis)
     {
-        Debug.Log("Esperar2");
+        // Debug.Log("Esperar2");
         foreach (int i in lista)
         {
             yield return new WaitForSeconds(1);
@@ -98,7 +97,7 @@ public class todos_lvl2 : MonoBehaviour
 
     IEnumerator esperar3(int i)
     {
-        Debug.Log("Esperar3");
+        //  Debug.Log("Esperar3");
 
         yield return new WaitForSecondsRealtime(1);
         if (i == 1)
@@ -173,7 +172,7 @@ public class todos_lvl2 : MonoBehaviour
 
     IEnumerator fase1(int nivel)
     {
-        Debug.Log("Fase1");
+        // Debug.Log("Fase1");
         random = UnityEngine.Random.Range(1, 6);
         yield return new WaitForSeconds(0);
 
@@ -224,7 +223,7 @@ public class todos_lvl2 : MonoBehaviour
 
         }
 
-        Debug.Log(random);
+        // Debug.Log(random);
 
 
 
@@ -234,19 +233,13 @@ public class todos_lvl2 : MonoBehaviour
 
     IEnumerator fase2(int nivel)
     {
-        Debug.Log("Fase2");
+       // Debug.Log("Fase2");
         //  yield return new WaitForSecondsRealtime(1);
 
 
         if (lista_jugador.Count == lista.Count)
         {
 
-            if (!lista.SequenceEqual(lista_jugador))
-            {
-                GameObject.Find("perdiste").SetActive(false);
-                Debug.Log("perdiste");
-
-            }
 
             lista_jugador.Clear();
 
@@ -310,13 +303,21 @@ public class todos_lvl2 : MonoBehaviour
 
 
                 lista_jugador.Add(1);
-                Debug.Log("z");
+                //  Debug.Log("z");
                 AudioSource.PlayClipAtPoint(sonido_z, new Vector3(0, 0, 0), 1);
 
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
                 else
                     timer = 1;
+                if (!(lista.ElementAt(contador) == 1))
+                {
+                    //  Debug.Log("Maaaaaaal");
+                    SceneManager.LoadScene("Menu");
+
+                }
+                contador++;
+
             }
 
             if (Input.GetKeyDown("x"))
@@ -326,12 +327,19 @@ public class todos_lvl2 : MonoBehaviour
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = true;
                 lista_jugador.Add(2);
-                Debug.Log("x");
+                // Debug.Log("x");
                 AudioSource.PlayClipAtPoint(sonido_x, new Vector3(0, 0, 0), 1);
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
                 else
                     timer = 1;
+                if (!(lista.ElementAt(contador) == 2))
+                {
+                    // Debug.Log("Maaaaaaal");
+                    SceneManager.LoadScene("Menu");
+
+                }
+                contador++;
 
             }
 
@@ -342,12 +350,19 @@ public class todos_lvl2 : MonoBehaviour
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = true;
                 lista_jugador.Add(3);
-                Debug.Log("a");
+                //    Debug.Log("a");
                 AudioSource.PlayClipAtPoint(sonido_a, new Vector3(0, 0, 0), 1);
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
                 else
                     timer = 1;
+                if (!(lista.ElementAt(contador) == 3))
+                {
+                    //  Debug.Log("Maaaaaaal");
+                    SceneManager.LoadScene("Menu");
+
+                }
+                contador++;
 
             }
 
@@ -358,13 +373,20 @@ public class todos_lvl2 : MonoBehaviour
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = true;
                 lista_jugador.Add(4);
-                Debug.Log("s");
+                // Debug.Log("s");
 
                 AudioSource.PlayClipAtPoint(sonido_s, new Vector3(0, 0, 0), 1);
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
                 else
                     timer = 1;
+                if (!(lista.ElementAt(contador) == 4))
+                {
+                    //   Debug.Log("Maaaaaaal");
+                    SceneManager.LoadScene("Menu");
+
+                }
+                contador++;
 
             }
 
@@ -375,13 +397,20 @@ public class todos_lvl2 : MonoBehaviour
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje5").GetComponent<SpriteRenderer>().enabled = true;
                 lista_jugador.Add(5);
-                Debug.Log("d");
+                // Debug.Log("d");
 
                 AudioSource.PlayClipAtPoint(sonido_d, new Vector3(0, 0, 0), 1);
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
                 else
                     timer = 1;
+                if (!(lista.ElementAt(contador) == 5))
+                {
+                  //  Debug.Log("Maaaaaaal");
+                    SceneManager.LoadScene("Menu");
+
+                }
+                contador++;
 
             }
 
