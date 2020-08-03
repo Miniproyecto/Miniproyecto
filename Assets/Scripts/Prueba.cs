@@ -42,7 +42,7 @@ public class Prueba : MonoBehaviour
         IEnumerator repetir(int entrada)
         {
 
-             terminorepetir = false;
+             terminorepetir = true;
             if (Input.GetKeyDown("z"))
             {
                 entrada++;
