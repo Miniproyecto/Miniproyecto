@@ -34,102 +34,110 @@ public class Prueba : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= 4 && terminorepetir) {
+        if (timer >= .04 && terminorepetir) {
             corutine = repetir(entrada);
             StartCoroutine(corutine);
         }
+
+
+        if (Input.GetKeyDown("backspace"))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+
+
         
+    }
+
+    IEnumerator repetir(int entrada)
+    {
+
+       // terminorepetir = false;
+        if (Input.GetKeyDown("z"))
+        {
+            entrada++;
+            GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSecondsRealtime(1);
+            GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = true;
 
 
-        IEnumerator repetir(int entrada) {
 
-            terminorepetir = false;
-            if (Input.GetKeyDown("z"))
-            {
-                entrada++;
-                GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
-                yield return new WaitForSecondsRealtime(1);
-                GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = true;
+            Debug.Log("z");
+            AudioSource.PlayClipAtPoint(sonido_z, new Vector3(0, 0, 0), 1);
+            entrada = 1;
 
+        }
 
-                
-                Debug.Log("z");
-                AudioSource.PlayClipAtPoint(sonido_z, new Vector3(0, 0, 0), 1);
-                entrada = 1;
-               
-            }
+        if (Input.GetKeyDown("x"))
+        {
+            entrada++;
+            GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSecondsRealtime(1);
+            GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = true;
 
-            if (Input.GetKeyDown("x"))
-            {
-                entrada++;
-                GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
-                yield return new WaitForSecondsRealtime(1);
-                GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = true;
-                
-                Debug.Log("x");
-                AudioSource.PlayClipAtPoint(sonido_x, new Vector3(0, 0, 0), 1);
-                entrada = 1;
+            Debug.Log("x");
+            AudioSource.PlayClipAtPoint(sonido_x, new Vector3(0, 0, 0), 1);
+            entrada = 1;
 
-            }
+        }
 
-            if (Input.GetKeyDown("a"))
-            {
-                entrada++;
-                GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
-                yield return new WaitForSecondsRealtime(1);
-                GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = true;
-                
-                Debug.Log("a");
-                AudioSource.PlayClipAtPoint(sonido_a, new Vector3(0, 0, 0), 1);
-                entrada = 1;
+        if (Input.GetKeyDown("a"))
+        {
+            entrada++;
+            GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSecondsRealtime(1);
+            GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = true;
 
-            }
+            Debug.Log("a");
+            AudioSource.PlayClipAtPoint(sonido_a, new Vector3(0, 0, 0), 1);
+            entrada = 1;
 
-            if (Input.GetKeyDown("s"))
-            {
-                entrada++;
-                GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
-                yield return new WaitForSecondsRealtime(1);
-                GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = true;
-                
-                Debug.Log("s");
+        }
 
-                AudioSource.PlayClipAtPoint(sonido_s, new Vector3(0, 0, 0), 1);
-                entrada = 1;
+        if (Input.GetKeyDown("s"))
+        {
+            entrada++;
+            GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSecondsRealtime(1);
+            GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = true;
 
-            }
+            Debug.Log("s");
 
-            if (Input.GetKeyDown("d"))
-            {
-                entrada++;
-                GameObject.Find("Personaje5").GetComponent<SpriteRenderer>().enabled = false;
-                yield return new WaitForSecondsRealtime(1);
-                GameObject.Find("Personaje5").GetComponent<SpriteRenderer>().enabled = true;
-                
-                Debug.Log("d");
+            AudioSource.PlayClipAtPoint(sonido_s, new Vector3(0, 0, 0), 1);
+            entrada = 1;
 
-                AudioSource.PlayClipAtPoint(sonido_d, new Vector3(0, 0, 0), 1);
-                entrada = 1;
+        }
 
-            }
+        if (Input.GetKeyDown("d"))
+        {
+            entrada++;
+            GameObject.Find("Personaje5").GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSecondsRealtime(1);
+            GameObject.Find("Personaje5").GetComponent<SpriteRenderer>().enabled = true;
 
-            if (Input.GetKeyDown("c"))
-            {
-                entrada++;
-                GameObject.Find("Personaje6").GetComponent<SpriteRenderer>().enabled = false;
-                yield return new WaitForSecondsRealtime(1);
-                GameObject.Find("Personaje6").GetComponent<SpriteRenderer>().enabled = true;
-                
-                Debug.Log("c");
+            Debug.Log("d");
 
-                AudioSource.PlayClipAtPoint(sonido_c, new Vector3(0, 0, 0), 1);
-                entrada = 1;
+            AudioSource.PlayClipAtPoint(sonido_d, new Vector3(0, 0, 0), 1);
+            entrada = 1;
 
-            }
+        }
+
+        if (Input.GetKeyDown("c"))
+        {
+            entrada++;
+            GameObject.Find("Personaje6").GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSecondsRealtime(1);
+            GameObject.Find("Personaje6").GetComponent<SpriteRenderer>().enabled = true;
+
+            Debug.Log("c");
+
+            AudioSource.PlayClipAtPoint(sonido_c, new Vector3(0, 0, 0), 1);
+            entrada = 1;
+
         }
     }
 
-    
+
 
 
 }
