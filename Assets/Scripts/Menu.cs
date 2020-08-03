@@ -26,6 +26,9 @@ public class Menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
+
         timer += Time.deltaTime;
         if (Input.GetKeyDown("space"))
         {
@@ -109,4 +112,28 @@ public class Menu : MonoBehaviour
 
 
     }
+
+   public void iniciar()
+    {
+        SceneManager.LoadScene("Niveles");
+    }
+
+
+    public void clickinstrucciones()
+    {
+        SceneManager.LoadScene("Instrucciones");
+    }
+
+
+    public void clickPrueba()
+    {
+        SceneManager.LoadScene("ModoPrueba");
+    }
+
+    public void clickProposito()
+    {
+        SceneManager.LoadScene("Proposito");
+    }
 }
+
+

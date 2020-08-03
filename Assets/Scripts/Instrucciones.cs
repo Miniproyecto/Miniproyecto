@@ -145,4 +145,11 @@ public class Instrucciones : MonoBehaviour
 
 
     }
+
+
+    public void clickRegresar()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
 }

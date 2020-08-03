@@ -822,8 +822,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 102900000, guid: 79e71d3a49db88749a89500a5cfb50df, type: 3}
-        m_MethodName: 
+      - m_Target: {fileID: 1849936544}
+        m_MethodName: clickRegresar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
