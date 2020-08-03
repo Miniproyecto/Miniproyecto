@@ -313,7 +313,7 @@ public class todos_lvl2 : MonoBehaviour
                 if (!(lista.ElementAt(contador) == 1))
                 {
                     //  Debug.Log("Maaaaaaal");
-                    SceneManager.LoadScene("Menu");
+                    SceneManager.LoadScene("Perdio");
 
                 }
                 contador++;
@@ -336,7 +336,7 @@ public class todos_lvl2 : MonoBehaviour
                 if (!(lista.ElementAt(contador) == 2))
                 {
                     // Debug.Log("Maaaaaaal");
-                    SceneManager.LoadScene("Menu");
+                    SceneManager.LoadScene("Perdio");
 
                 }
                 contador++;
@@ -359,7 +359,7 @@ public class todos_lvl2 : MonoBehaviour
                 if (!(lista.ElementAt(contador) == 3))
                 {
                     //  Debug.Log("Maaaaaaal");
-                    SceneManager.LoadScene("Menu");
+                    SceneManager.LoadScene("Perdio");
 
                 }
                 contador++;
@@ -383,7 +383,7 @@ public class todos_lvl2 : MonoBehaviour
                 if (!(lista.ElementAt(contador) == 4))
                 {
                     //   Debug.Log("Maaaaaaal");
-                    SceneManager.LoadScene("Menu");
+                    SceneManager.LoadScene("Perdio");
 
                 }
                 contador++;
@@ -407,7 +407,7 @@ public class todos_lvl2 : MonoBehaviour
                 if (!(lista.ElementAt(contador) == 5))
                 {
                   //  Debug.Log("Maaaaaaal");
-                    SceneManager.LoadScene("Menu");
+                    SceneManager.LoadScene("Perdio");
 
                 }
                 contador++;

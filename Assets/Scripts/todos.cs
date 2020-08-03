@@ -309,7 +309,7 @@ public class todos : MonoBehaviour
                 if (!(lista.ElementAt(contador) == 25))
                 {
                     Debug.Log("Maaaaaaal");
-                    SceneManager.LoadScene("Menu");
+                    SceneManager.LoadScene("Perdio");
 
                 }
                 contador++;
@@ -333,7 +333,7 @@ public class todos : MonoBehaviour
                 if (!(lista.ElementAt(contador) == 5))
                 {
                     Debug.Log("Maaaaaaal");
-                    SceneManager.LoadScene("Menu");
+                    SceneManager.LoadScene("Perdio");
 
                 }
                 contador++;
@@ -356,7 +356,7 @@ public class todos : MonoBehaviour
                 if (!(lista.ElementAt(contador) == 50))
                 {
                     Debug.Log("Maaaaaaal");
-                    SceneManager.LoadScene("Menu");
+                    SceneManager.LoadScene("Perdio");
 
                 }
                 contador++;
@@ -381,7 +381,7 @@ public class todos : MonoBehaviour
                 if (!(lista.ElementAt(contador) == 99))
                 {
                     Debug.Log("Maaaaaaal");
-                    SceneManager.LoadScene("Menu");
+                    SceneManager.LoadScene("Perdio");
 
                 }
                 contador++;

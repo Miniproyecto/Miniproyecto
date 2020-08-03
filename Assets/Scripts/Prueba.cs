@@ -34,7 +34,7 @@ public class Prueba : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= 4 && terminorepetir) {
+        if (timer >= .4 && terminorepetir) {
             corutine = repetir(entrada);
             StartCoroutine(corutine);
         }
@@ -42,7 +42,7 @@ public class Prueba : MonoBehaviour
         IEnumerator repetir(int entrada)
         {
 
-             terminorepetir = false;
+//terminorepetir = true;
             if (Input.GetKeyDown("z"))
             {
                 entrada++;
