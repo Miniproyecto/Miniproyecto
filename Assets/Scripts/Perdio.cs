@@ -42,4 +42,9 @@ public class Perdio : MonoBehaviour
         }
 
     }
+
+    public void clickRegresar()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }

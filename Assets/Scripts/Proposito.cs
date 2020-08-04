@@ -21,4 +21,10 @@ public class Proposito : MonoBehaviour
         }
 
     }
+
+
+    public void clickRegresar()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
