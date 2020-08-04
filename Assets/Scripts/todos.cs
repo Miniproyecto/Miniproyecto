@@ -22,6 +22,10 @@ public class todos : MonoBehaviour
     public AudioClip sonido_x = null;
     public AudioClip sonido_a = null;
     public AudioClip sonido_s = null;
+    public AudioClip z = null;
+    public AudioClip x = null;
+    public AudioClip a = null;
+    public AudioClip s = null;
 
     private IEnumerator coroutine4;
     List<int> lista = new List<int>(); //lista donde esta la secuencia que se tiene que hacer
@@ -119,25 +123,34 @@ public class todos : MonoBehaviour
             if (i == 25)
         {
              GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
-             AudioSource.PlayClipAtPoint(sonido_z, new Vector3(0, 0, 0), 1);
+            AudioSource.PlayClipAtPoint(z, new Vector3(0, 0, 0), 1);
+            AudioSource.PlayClipAtPoint(sonido_z, new Vector3(0, 0, 0), 1);
+            
+
 
         }
             if (i == 5)
         {
             GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
+            AudioSource.PlayClipAtPoint(x, new Vector3(0, 0, 0), 1);
             AudioSource.PlayClipAtPoint(sonido_x, new Vector3(0, 0, 0), 1);
+            
 
         }
         if (i == 50)
         {
             GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
+            AudioSource.PlayClipAtPoint(a, new Vector3(0, 0, 0), 1);
             AudioSource.PlayClipAtPoint(sonido_a, new Vector3(0, 0, 0), 1);
+           
 
         }
         if (i == 99)
         {
             GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
+            AudioSource.PlayClipAtPoint(s, new Vector3(0, 0, 0), 1);
             AudioSource.PlayClipAtPoint(sonido_s, new Vector3(0, 0, 0), 1);
+            
 
         }
         yield return new WaitForSecondsRealtime(1);
@@ -252,25 +265,33 @@ public class todos : MonoBehaviour
                 if (i == 25)
                 {
                     GameObject.Find("Personaje").GetComponent<SpriteRenderer>().enabled = false;
+                    AudioSource.PlayClipAtPoint(z, new Vector3(0, 0, 0), 1);
                     AudioSource.PlayClipAtPoint(sonido_z, new Vector3(0, 0, 0), 1);
+                    
 
                 }
                 if (i == 5)
                 {
                     GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = false;
+                    AudioSource.PlayClipAtPoint(x, new Vector3(0, 0, 0), 1);
                     AudioSource.PlayClipAtPoint(sonido_x, new Vector3(0, 0, 0), 1);
+                    
 
                 }
                 if (i == 50)
                 {
                     GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = false;
+                    AudioSource.PlayClipAtPoint(a, new Vector3(0, 0, 0), 1);
                     AudioSource.PlayClipAtPoint(sonido_a, new Vector3(0, 0, 0), 1);
+                   
 
                 }
                 if (i == 99)
                 {
                     GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = false;
+                    AudioSource.PlayClipAtPoint(s, new Vector3(0, 0, 0), 1);
                     AudioSource.PlayClipAtPoint(sonido_s, new Vector3(0, 0, 0), 1);
+                    
 
                 }
                 yield return new WaitForSecondsRealtime(1);
@@ -299,8 +320,10 @@ public class todos : MonoBehaviour
                 
 
                 lista_jugador.Add(25);
-               // Debug.Log("z");
+                // Debug.Log("z");
+                AudioSource.PlayClipAtPoint(z, new Vector3(0, 0, 0), 1);
                 AudioSource.PlayClipAtPoint(sonido_z, new Vector3(0, 0, 0), 1);
+                
 
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
@@ -324,7 +347,8 @@ public class todos : MonoBehaviour
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje2").GetComponent<SpriteRenderer>().enabled = true;
                 lista_jugador.Add(5);
-                //Debug.Log("x");
+                //Debug.Log("x")
+                AudioSource.PlayClipAtPoint(x, new Vector3(0, 0, 0), 1);
                 AudioSource.PlayClipAtPoint(sonido_x, new Vector3(0, 0, 0), 1);
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
@@ -347,7 +371,8 @@ public class todos : MonoBehaviour
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje3").GetComponent<SpriteRenderer>().enabled = true;
                 lista_jugador.Add(50);
-               // Debug.Log("a");
+                // Debug.Log("a");
+                AudioSource.PlayClipAtPoint(a, new Vector3(0, 0, 0), 1);
                 AudioSource.PlayClipAtPoint(sonido_a, new Vector3(0, 0, 0), 1);
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;
@@ -371,8 +396,8 @@ public class todos : MonoBehaviour
                 yield return new WaitForSecondsRealtime(1);
                 GameObject.Find("Personaje4").GetComponent<SpriteRenderer>().enabled = true;
                 lista_jugador.Add(99);
-               // Debug.Log("s");
-
+                // Debug.Log("s");
+                AudioSource.PlayClipAtPoint(s, new Vector3(0, 0, 0), 1);
                 AudioSource.PlayClipAtPoint(sonido_s, new Vector3(0, 0, 0), 1);
                 if (lista.Count == lista_jugador.Count)
                     timer = 1;

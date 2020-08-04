@@ -884,6 +884,12 @@ MonoBehaviour:
   sonido_s: {fileID: 8300000, guid: 5ff4997a6750bb84eb62b0429d237f9a, type: 3}
   sonido_d: {fileID: 8300000, guid: 82b42bcac065e7441931820c965d5e93, type: 3}
   sonido_c: {fileID: 8300000, guid: bcb6c03f5d99f7e4ca2573636bef8033, type: 3}
+  z: {fileID: 8300000, guid: 9785636d9b5274fecbb6075115af4ace, type: 3}
+  x: {fileID: 8300000, guid: 04bbf70ad63ff48c1aa3c4cac2b38179, type: 3}
+  a: {fileID: 8300000, guid: 8eda84857d7fa4774bea2e4016027abd, type: 3}
+  s: {fileID: 8300000, guid: 3f3bfff58e7594dd7bdebe47d66ff07c, type: 3}
+  d: {fileID: 8300000, guid: a7c621c32390a4c4b95bc2979cc62138, type: 3}
+  c: {fileID: 8300000, guid: a129322fda2bc417097b69cc75c0047a, type: 3}
 --- !u!4 &1450791436
 Transform:
   m_ObjectHideFlags: 0

@@ -806,6 +806,11 @@ MonoBehaviour:
   sonido_a: {fileID: 8300000, guid: b09038897fb5ecf468b300fb5bc203a3, type: 3}
   sonido_s: {fileID: 8300000, guid: 5ff4997a6750bb84eb62b0429d237f9a, type: 3}
   sonido_d: {fileID: 8300000, guid: 82b42bcac065e7441931820c965d5e93, type: 3}
+  z: {fileID: 8300000, guid: 9785636d9b5274fecbb6075115af4ace, type: 3}
+  x: {fileID: 8300000, guid: 04bbf70ad63ff48c1aa3c4cac2b38179, type: 3}
+  a: {fileID: 8300000, guid: 8eda84857d7fa4774bea2e4016027abd, type: 3}
+  s: {fileID: 8300000, guid: 3f3bfff58e7594dd7bdebe47d66ff07c, type: 3}
+  d: {fileID: 8300000, guid: a7c621c32390a4c4b95bc2979cc62138, type: 3}
 --- !u!1 &1738972624
 GameObject:
   m_ObjectHideFlags: 0
