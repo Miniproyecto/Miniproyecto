@@ -408,6 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde7d88f8ff52a24788b5d6093b1252f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  proposito2: {fileID: 8300000, guid: e76ba2fd95440477e8312abc0168731a, type: 3}
 --- !u!4 &901026810
 Transform:
   m_ObjectHideFlags: 0

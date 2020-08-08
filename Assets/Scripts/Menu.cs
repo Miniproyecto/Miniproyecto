@@ -29,78 +29,44 @@ public class Menu : MonoBehaviour
 
         
 
+
         timer += Time.deltaTime;
+
+        if (reproducirniveles)
+            AudioSource.PlayClipAtPoint(niveles, new Vector3(0, 0, 0), 1);
+        reproducirniveles = false;
+
+
+
         if (Input.GetKeyDown("space"))
         {
-            if (timer < 10)
-            {
-                SceneManager.LoadScene("Niveles");
-            }
-
-            if (timer > 10 && timer < 20)
-            {
-                SceneManager.LoadScene("Instrucciones");
-            }
-
-            if (timer > 20 && timer < 30)
-            {
-                SceneManager.LoadScene("ModoPrueba");
-            }
-
-            if (timer > 30 && timer < 40)
-            {
-                SceneManager.LoadScene("Proposito");
-            }
-
-
+            SceneManager.LoadScene("Niveles");
+           
 
         }
 
-        if(timer< 10)
+        if (Input.GetKeyDown("z"))
         {
-            GameObject.Find("Accion").GetComponent<Text>().text = "Accion: Seleccionar Niveles";
-            if(reproducirniveles)
-                AudioSource.PlayClipAtPoint(niveles, new Vector3(0, 0, 0), 1);
-            reproducirniveles = false;
-
-
+            SceneManager.LoadScene("Instrucciones");
         }
-        if (timer > 10 && timer < 20)
+
+        if (Input.GetKeyDown("x"))
         {
-            GameObject.Find("Accion").GetComponent<Text>().text = "Accion: Instrucciones";
-            if(reproducirInstrucciones)
-                AudioSource.PlayClipAtPoint(instrucciones, new Vector3(0, 0, 0), 1);
-            reproducirInstrucciones = false;
-
+            SceneManager.LoadScene("ModoPrueba");
         }
-        if (timer > 20 && timer < 30)
+
+        if (Input.GetKeyDown("c"))
         {
-            GameObject.Find("Accion").GetComponent<Text>().text = "Accion: Modo prueba";
-            if (reproducirModoPrueba)
-                AudioSource.PlayClipAtPoint(modoprueba, new Vector3(0, 0, 0), 1);
-            reproducirModoPrueba = false;
+            SceneManager.LoadScene("Proposito");
         }
-
-        if (timer > 30 && timer < 40)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameObject.Find("Accion").GetComponent<Text>().text = "Accion: Proposito";
-            if (reproducirProposito)
-                AudioSource.PlayClipAtPoint(proposito, new Vector3(0, 0, 0), 1);
-            reproducirProposito = false;
-
-        }
-
-        if (timer > 40 && timer < 50)
-        {
-            GameObject.Find("Accion").GetComponent<Text>().text = "Accion: Salir";
-            if (reproducirSalir)
-                AudioSource.PlayClipAtPoint(salir, new Vector3(0, 0, 0), 1);
-            reproducirSalir = false;
-
+            Application.Quit();
         }
 
 
-        if (timer > 50)
+
+        if (timer > 20)
         {
             timer = 0;
             reproducirniveles = true;

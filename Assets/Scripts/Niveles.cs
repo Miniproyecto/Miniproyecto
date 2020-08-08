@@ -24,60 +24,39 @@ public class Niveles : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (Input.GetKeyDown("space"))
+        if (reproducirfacil)
+            AudioSource.PlayClipAtPoint(facil, new Vector3(0, 0, 0), 1);
+        reproducirfacil = false;
+
+        if (Input.GetKeyDown("z"))
         {
-            if (timer < 10)
-            {
-                SceneManager.LoadScene("SampleScene");
-            }
-
-            if (timer > 10 && timer < 20)
-            {
-                SceneManager.LoadScene("nivel2");
-            }
-
-            if (timer > 20 && timer < 30)
-            {
-                SceneManager.LoadScene("nivel3");
-            }
+            SceneManager.LoadScene("SampleScene");
         }
+
+        if (Input.GetKeyDown("x"))
+        {
+            SceneManager.LoadScene("nivel2");
+        }
+
+        if (Input.GetKeyDown("c"))
+        {
+            SceneManager.LoadScene("nivel3");
+        }
+
+
 
         if (Input.GetKeyDown("backspace"))
         {
             SceneManager.LoadScene("Menu");
         }
 
-        GameObject.Find("Tiempo").GetComponent<Text>().text = "Tiempo: " + timer;
+        
 
-        if (timer < 10)
-        {
-            GameObject.Find("Accion").GetComponent<Text>().text = "Accion: Facil";
-            if (reproducirfacil)
-                AudioSource.PlayClipAtPoint(facil, new Vector3(0, 0, 0), 1);
-            reproducirfacil = false;
-        }
-        if (timer > 10 && timer < 20)
-        {
-            GameObject.Find("Accion").GetComponent<Text>().text = "Accion: Medio";
-            if (reproducirmedio)
-                AudioSource.PlayClipAtPoint(medio, new Vector3(0, 0, 0), 1);
-            reproducirmedio = false;
-        }
-        if (timer > 20 && timer < 30)
-        {
-            GameObject.Find("Accion").GetComponent<Text>().text = "Accion: Dificil";
-            if (reproducirdificil)
-                AudioSource.PlayClipAtPoint(dificil, new Vector3(0, 0, 0), 1);
-            reproducirdificil = false;
-        }
-
-        if (timer > 30)
+        if (timer > 17)
         {
             timer = 0;
-            reproducirdificil = true;
-            reproducirmedio = true;
-            reproducirfacil = true;
 
+            reproducirfacil = true;
         }
 
 
