@@ -59,7 +59,7 @@ public class Menu : MonoBehaviour
         {
             SceneManager.LoadScene("Proposito");
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown("escape"))
         {
             Application.Quit();
         }
@@ -73,7 +73,7 @@ public class Menu : MonoBehaviour
         }
             
 
-        GameObject.Find("Tiempo").GetComponent<Text>().text = "Tiempo: " + timer;
+       // GameObject.Find("Tiempo").GetComponent<Text>().text = "Tiempo: " + timer;
 
 
 
@@ -100,6 +100,14 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Proposito");
     }
+
+   public void clickSalir()
+    {
+        Debug.Log("Click en salir");
+        Application.Quit();
+        Debug.Log("No se debe de ver");
+    }
+
 }
 
 

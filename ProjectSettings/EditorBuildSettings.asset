@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Perdio.unity
     guid: 5ce97357d54ae9849ad83642f4e54695
+  - enabled: 1
+    path: Assets/Scenes/Proposito.unity
+    guid: bf81f3392de49ff4d92f8204b180bad7
   m_configObjects: {}
