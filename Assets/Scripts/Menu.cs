@@ -105,7 +105,6 @@ public class Menu : MonoBehaviour
     {
         Debug.Log("Click en salir");
         Application.Quit();
-        Debug.Log("No se debe de ver");
     }
 
 }

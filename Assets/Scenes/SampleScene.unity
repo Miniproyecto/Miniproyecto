@@ -875,6 +875,8 @@ MonoBehaviour:
   x: {fileID: 8300000, guid: 04bbf70ad63ff48c1aa3c4cac2b38179, type: 3}
   a: {fileID: 8300000, guid: 8eda84857d7fa4774bea2e4016027abd, type: 3}
   s: {fileID: 8300000, guid: 3f3bfff58e7594dd7bdebe47d66ff07c, type: 3}
+  escucha: {fileID: 8300000, guid: eaaec091dd90bbc40b89004a691b1f57, type: 3}
+  tu_turno: {fileID: 8300000, guid: d798f22f1668d2c48b4d36d419a006d2, type: 3}
 --- !u!4 &1450791436
 Transform:
   m_ObjectHideFlags: 0

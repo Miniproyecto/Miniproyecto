@@ -14,6 +14,8 @@ public class todos_lvl3 : MonoBehaviour
     int contador;
     bool terminofase1;
     bool terminofase2;
+    bool primera_vez = true;
+    bool turno = true;
     float timer = 0.0f;
     private IEnumerator coroutine;
     private IEnumerator coroutine2;
@@ -31,6 +33,8 @@ public class todos_lvl3 : MonoBehaviour
     public AudioClip s = null;
     public AudioClip d = null;
     public AudioClip c = null;
+    public AudioClip escucha = null;
+    public AudioClip tu_turno = null;
 
 
     private IEnumerator coroutine4;
@@ -198,7 +202,15 @@ public class todos_lvl3 : MonoBehaviour
 
     IEnumerator fase1(int nivel)
     {
+        turno = true;
         random = UnityEngine.Random.Range(1, 7);
+        if (primera_vez)
+        {
+            AudioSource.PlayClipAtPoint(escucha, new Vector3(0, 0, 0), 1);
+
+            yield return new WaitForSeconds(1);
+            primera_vez = false;
+        }
         yield return new WaitForSeconds(0);
 
 
@@ -273,6 +285,9 @@ public class todos_lvl3 : MonoBehaviour
 
 
             lista_jugador.Clear();
+            AudioSource.PlayClipAtPoint(escucha, new Vector3(0, 0, 0), 1);
+
+            yield return new WaitForSeconds(1);
 
             foreach (var i in lista)
             {
@@ -331,6 +346,14 @@ public class todos_lvl3 : MonoBehaviour
             timer = 0;
         }
 
+        if (turno)
+        {
+            turno = false;
+            AudioSource.PlayClipAtPoint(tu_turno, new Vector3(0, 0, 0), 1);
+
+            yield return new WaitForSeconds(1);
+
+        }
 
 
         for (int i = 0; i < nivel; i++)

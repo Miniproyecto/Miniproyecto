@@ -14,6 +14,8 @@ public class todos : MonoBehaviour
     int contador;
     bool terminofase1;
     bool terminofase2 ;
+    bool primera_vez = true;
+    bool turno = true;
     float timer = 0.0f;
     private IEnumerator coroutine;
     private IEnumerator coroutine2;
@@ -26,6 +28,9 @@ public class todos : MonoBehaviour
     public AudioClip x = null;
     public AudioClip a = null;
     public AudioClip s = null;
+    public AudioClip escucha = null;
+    public AudioClip tu_turno = null;
+
 
     private IEnumerator coroutine4;
     List<int> lista = new List<int>(); //lista donde esta la secuencia que se tiene que hacer
@@ -190,8 +195,17 @@ public class todos : MonoBehaviour
 
     IEnumerator fase1(int nivel)
     {
+        turno = true;
        // Debug.Log("Fase1");
         random = UnityEngine.Random.Range(1, 5);
+        if (primera_vez)
+        {
+            AudioSource.PlayClipAtPoint(escucha, new Vector3(0, 0, 0), 1);
+
+            yield return new WaitForSeconds(1);
+            primera_vez = false;
+        }
+
         yield return new WaitForSeconds(0);
       
 
@@ -242,8 +256,10 @@ public class todos : MonoBehaviour
 
     IEnumerator fase2(int nivel)
     {
-       // Debug.Log("Fase2");
+        // Debug.Log("Fase2");
         //  yield return new WaitForSecondsRealtime(1);
+
+       
 
 
         if (lista_jugador.Count == lista.Count)
@@ -257,6 +273,10 @@ public class todos : MonoBehaviour
             }
 
             lista_jugador.Clear();
+
+            AudioSource.PlayClipAtPoint(escucha, new Vector3(0, 0, 0), 1);
+
+            yield return new WaitForSeconds(1);
 
             foreach (var i in lista)
             {
@@ -305,7 +325,15 @@ public class todos : MonoBehaviour
             timer = 0;
         }
 
+        if (turno)
+        {
+            turno = false;
+            AudioSource.PlayClipAtPoint(tu_turno, new Vector3(0, 0, 0), 1);
 
+            yield return new WaitForSeconds(1);
+           
+        }
+        
 
         for (int i=0; i<nivel; i++)
         {

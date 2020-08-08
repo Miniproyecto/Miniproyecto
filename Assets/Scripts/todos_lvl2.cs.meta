@@ -3,7 +3,19 @@ guid: dbfb6fb4229425d4cb98cda8979782a5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sonido_z: {instanceID: 0}
+  - sonido_x: {instanceID: 0}
+  - sonido_a: {instanceID: 0}
+  - sonido_s: {instanceID: 0}
+  - sonido_d: {instanceID: 0}
+  - z: {instanceID: 0}
+  - x: {instanceID: 0}
+  - a: {instanceID: 0}
+  - s: {instanceID: 0}
+  - d: {instanceID: 0}
+  - escucha: {fileID: 8300000, guid: eaaec091dd90bbc40b89004a691b1f57, type: 3}
+  - tu_turno: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
