@@ -147,7 +147,7 @@ public class Instrucciones : MonoBehaviour
     }
 
 
-    public void clickRegresar()
+    public void ClickRegresar()
     {
         SceneManager.LoadScene("Menu");
     }
